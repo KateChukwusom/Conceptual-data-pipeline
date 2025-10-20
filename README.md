@@ -1,5 +1,5 @@
 # Conceptual-data-pipeline
-This is a repository showing how a data pipeline is built to deliver solutions CONCEPTUALLY considering business requirements and tradeoffs, A project task by DE Mentorship Program, to help with understanding the fundamentals of data engineering, taught by Snr Data Engineeer Najeeb Sulaiman.
+This is a repository showing how a data pipeline is built to deliver solutions CONCEPTUALLY considering business requirements and tradeoffs, a project task by DE Mentorship Program, to help with understanding the fundamentals of Data Engineering, taught by Snr. Data Engineeer Najeeb Sulaiman.
 
 # Problem Statement
 As a Data Engineer at a telecom company called Beejan Technologies. Every day, thousands of customers complain about issues like poor network, incorrect billing, or bad customer service. These complaints come through different channels: social media, call center log files, SMS, and website forms.
@@ -8,7 +8,7 @@ The management is frustrated. Data is stored in different formats. The reporting
 
 We are to design a solution to bring all this data together, clean it, enrich it and make it ready to provide actionable insights. The first step is do map out a conceptual pipeline, first considering business requirements and of course what we will tradeoff to achieve highly efficient solutions specific to the problem.
 
-# Business Requirements(From the business stakeholders POV)
+# Business Requirements(From the business stakeholders POV:)
 - "We want to see problems as soon as they happen"
 - "We need accurate, consistent reports to make decisions."
 - "We want it fast and affordable to run at scale"
@@ -21,10 +21,9 @@ We are building this pipeline achieving low latency, high performance and low co
 
 -> Call Center Logs: Semi-structured, frequency - every few minutes or hourly.
 
--> SMS: Small structured messages, frequency - daily or hourly batch — depending on
-call volume.
+-> SMS: Small structured messages, frequency - daily or hourly batch — depending on call volume.
 
--> Website Forms: structured form data, frequency - hourly or daily batch — submissions accumulate before export.
+-> Website Forms: Structured form data, frequency - hourly or daily batch — submissions accumulate before export.
 
 ## Data Ingestion
 
@@ -34,7 +33,7 @@ call volume.
 
 ## Data Processing/Transformation: 
 
--> Tradeoff: we trade off low latency for higher data quality and performance — ensuring that while insights may arrive a few minutes later, they are accurate, interpretable, and reliable enough for management decisions.
+-> Tradeoff: We trade off low latency for higher data quality and performance — ensuring that while insights may arrive a few minutes later, they are accurate, interpretable, and reliable enough for management decisions.
 
 -> Decision:;
 -> Raw data: All complaints (texts, messages, logs) arrive into the processing layer tagged with metadata: source, timestamp, language, region, etc.
@@ -49,15 +48,16 @@ call volume.
 
 -> Tradeoff: We trade off low latency as there will be slight delay in clean data availability.
 
--> Decision: We use data lake for all raw data and and data warehouse for clean curated tables.
+-> Decision: We use data lake for all raw historical data and data warehouse for clean curated tables.
 
 ## Data Serving
 
 -> Tradeoff: We tradeoff low cost as data warehouses(which is expensive) give low-latency query responses for dashboards and reports.
 
-->Decision: Operational dashboards which uses summarized, fast-updating data (low latency).
+-> Decision: Operational dashboards which uses summarized, fast-updating data (low latency).
 
 ## Data Orchestration and Monitoring
+
 -> Tradeoff: We trade off low cost for speed and fastness of failure detection.
 
 -> Decision:;
@@ -78,7 +78,9 @@ call volume.
 -> Decision:;
 
 ->  We are running the pipeline in a cloud environment.
+
 -> Use containerization or orchestration platforms to ensure reproducibility and easy deployment.
+
 -> Deploy through version-controlled workflows with CI/CD for updates.
 
 ## Conclusion
